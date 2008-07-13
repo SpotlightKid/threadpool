@@ -1,14 +1,13 @@
 #!/bin/sh
 
-BASE_DIR="/home/www/chrisarndt.de/htdocs/projects/threadpool"
-HOST="chris.dilruacs.nl"
-USER="chris"
+BASE_DIR="/htdocs/en/software/python/"
+HOST="chrisarndt.de"
+USER="chrisarnde79"
+echo -n "Password: "
+read PASSWD
 
-if [ "x$1" != "x-f" ]; then
-    RSYNC_OPTS="-n"
-fi
+ncftpput -R -u "${USER}" -p "${PASSWD}" "${HOST}" "${BASE_DIR}" \
+  threadpool.html threadpool.py.html rest.css tp_api
 
-rsync $RSYNC_OPTS -av --update --exclude=download --exclude=.svn --delete \
-    doc/ "$USER@$HOST:$BASE_DIR"
-rsync $RSYNC_OPTS -av --update "--exclude=*.dev*" \
-    dist/ "$USER@$HOST:$BASE_DIR/download"
+ncftpput -u "${USER}" -p "${PASSWD}" "${HOST}" "${BASE_DIR}/download/" \
+  threadpool.py

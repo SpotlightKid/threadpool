@@ -1,7 +1,7 @@
 /*
 :Authors: Ian Bicking, Michael Foord
 :Contact: fuzzyman@voidspace.org.uk
-:Date: 2005/08/26
+:Date: 2005/08/26 
 :Version: 0.1.0
 :Copyright: This stylesheet has been placed in the public domain.
 
@@ -10,32 +10,11 @@ Based on ``blue_box.css`` by Ian Bicking
 and ``default.css`` revision 1.46
 */
 
-/*
 @import url(default.css);
 @import url(pysrc.css);
-*/
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #444499;
-    margin: 0;
-    padding: 0;
-}
-
-.document, div.footer {
-    background-color: #ffffff;
-    margin: 0 auto;
-    width: 50em;
-    padding: 0.5em;
-}
-
-.document {
-    border-top: 4em solid #9999ee;
-    padding-top: 1px
-}
-
-.footer {
-    color: gray;
+  font-family: Arial, sans-serif;
 }
 
 em, i {
@@ -59,14 +38,6 @@ a.toc-backref:hover {
 
 a:hover {
   background-color: #cccccc;
-}
-
-.topic-title {
-    font-size: x-large;
-    font-family: 'Trebuchet MS','Lucida Grande',Verdana,Arial,Sans-Serif;
-    font-weight: bold;
-    text-align: left;
-    color: #555555;
 }
 
 div.attention, div.caution, div.danger, div.error, div.hint,
@@ -97,41 +68,45 @@ div.warning p.admonition-title {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Trebuchet MS','Lucida Grande',Verdana,Arial,Sans-Serif;
-    font-weight: bold;
-    text-align: left;
-    color: #555555;
+  font-family: Helvetica, Arial, sans-serif;
+  border: thin solid black;
+  /* This makes the borders rounded on Mozilla, which pleases me */
+  -moz-border-radius: 8px;
+  padding: 4px;
 }
 
 h1 {
-    font-size: 150%;
+  background-color: #444499;
+  color: #ffffff;
+  border: medium solid black;
 }
 
-h1 a.toc-backref, h2 a.toc-backref {
-    color: #555555;
+h1 a.toc-backref, h2 a.toc-backref { 
+  color: #ffffff;
 }
 
 h2 {
-    font-size: 130%;
+  background-color: #666666;
+  color: #ffffff;
+  border: medium solid black;
 }
 
 h3, h4, h5, h6 {
-    font-size: 120%;
+  background-color: #cccccc;
+  color: #000000;
 }
 
-h3 a.toc-backref, h4 a.toc-backref, h5 a.toc-backref,
-h6 a.toc-backref {
-    color: #555555;
+h3 a.toc-backref, h4 a.toc-backref, h5 a.toc-backref, 
+h6 a.toc-backref { 
+  color: #000000;
 }
 
 h1.title {
-    font-size: 400%;
-    color: #555555;
-    position: relative;
-    display: block;
-    top: -0.65em;
-    left: 1em;
-    margin: 0;
+  text-align: center;
+  background-color: #444499;
+  color: #eeeeee;
+  border: thick solid black;
+  -moz-border-radius: 20px;
 }
 
 table.footnote {
@@ -142,16 +117,9 @@ table.citation {
   padding-left: 0.5ex
 }
 
-pre, .pre {
-  font-family: monospace;
-  font-size: 1.1em;
-  color: #444499;
-}
-
 pre.literal-block, pre.doctest-block {
-  border: 1px solid gray;
+  border: thin black solid;
   padding: 5px;
-  background-color: #dddddd;
 }
 
 .image img { border-style : solid;

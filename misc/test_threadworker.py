@@ -25,12 +25,12 @@ def getmd5(filename, data=None):
         fp.close()
     return m.hexdigest()
 
-def getmd5_2(dummy, data):
+def getmd5_2(filename, data):
     m = md5.new()
     m.update(data)
     return m.hexdigest()
 
-def getsha(dummy, data):
+def getsha(filename, data):
     m = sha.new()
     m.update(data)
     return m.hexdigest()
