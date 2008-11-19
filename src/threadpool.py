@@ -239,12 +239,13 @@ class ThreadPool:
         worker threads will block when the queue is full and they try to put
         new results in it.
 
-        .. warning::
+        .. warning:
             If you set both ``q_size`` and ``resq_size`` to ``!= 0`` there is
             the possibilty of a deadlock, when the results queue is not pulled
             regularly and too many jobs are put in the work requests queue.
             To prevent this, always set ``timeout > 0`` when calling
             ``ThreadPool.putRequest()`` and catch ``Queue.Full`` exceptions.
+
         """
         self._requests_queue = Queue.Queue(q_size)
         self._results_queue = Queue.Queue(resq_size)
