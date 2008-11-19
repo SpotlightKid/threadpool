@@ -5,8 +5,8 @@ Threadpool
 
 :Title: Easy to use object-oriented thread pool framework
 :Author: Christopher Arndt
-:Version: 1.2.4
-:Date: 2008-05-03
+:Version: 1.2.5
+:Date: 2008-11-19
 :License: MIT License
 
 
