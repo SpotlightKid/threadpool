@@ -12,9 +12,9 @@ this queue as soon as they become available or after all threads have
 finished their work. It's also possible, to define callbacks to handle
 each result as it comes in.
 
-The basic concept and some code was taken from the book "Python in a Nutshell"
-by Alex Martelli, copyright 2003, ISBN 0-596-00188-6, from section 14.5
-"Threaded Program Architecture". I wrapped the main program logic in the
+The basic concept and some code was taken from the book "Python in a Nutshell,
+2nd edition" by Alex Martelli, O'Reilly 2006, ISBN 0-596-10046-9, from section
+14.5 "Threaded Program Architecture". I wrapped the main program logic in the
 ThreadPool class, added the WorkRequest class and the callback system and
 tweaked the code here and there. Kudos also to Florent Aide for the exception
 handling mechanism.
@@ -31,6 +31,7 @@ See the end of the module code for a brief, annotated usage example.
 Website : http://chrisarndt.de/projects/threadpool/
 
 """
+__docformat__ = "restructuredtext en"
 
 __all__ = [
     'makeRequests',
@@ -42,7 +43,7 @@ __all__ = [
 ]
 
 __author__ = "Christopher Arndt"
-__version__ = "1.2.4"
+__version__ = "1.2.5"
 __revision__ = "$Revision$"
 __date__ = "$Date$"
 __license__ = 'MIT license'
@@ -143,13 +144,13 @@ class WorkerThread(threading.Thread):
             # queue after self._poll_timout seconds, we jump to the start of
             # the while loop again, to give the thread a chance to exit.
             try:
-                request = self._requests_queue.get(self._poll_timeout)
+                request = self._requests_queue.get(True, self._poll_timeout)
             except Queue.Empty:
                 continue
             else:
                 if self._dismissed.isSet():
                     # we are dismissed, put back request in queue and exit loop
-                    self._reuests_queue.put(request)
+                    self._requests_queue.put(request)
                     break
                 try:
                     result = request.callable(*request.args, **request.kwds)
@@ -248,6 +249,7 @@ class ThreadPool:
         self._requests_queue = Queue.Queue(q_size)
         self._results_queue = Queue.Queue(resq_size)
         self.workers = []
+        self.dismissedWorkers = []
         self.workRequests = {}
         self.createWorkers(num_workers, poll_timeout)
 
@@ -263,11 +265,26 @@ class ThreadPool:
             self.workers.append(WorkerThread(self._requests_queue,
                 self._results_queue, poll_timeout=poll_timeout))
 
-    def dismissWorkers(self, num_workers):
+    def dismissWorkers(self, num_workers, do_join=False):
         """Tell num_workers worker threads to quit after their current task."""
+        dismiss_list = []
         for i in range(min(num_workers, len(self.workers))):
             worker = self.workers.pop()
             worker.dismiss()
+            dismiss_list.append(worker)
+
+        if do_join:
+            for worker in dismiss_list:
+                worker.join()
+        else:
+            self.dismissedWorkers.extend(dismiss_list)
+
+    def joinAllDismissedWorkers(self):
+        """Perform Thread.join() on all worker threads that have been dismissed.
+        """
+        for worker in self.dismissedWorkers:
+            worker.join()
+        self.dismissedWorkers = []
 
     def putRequest(self, request, block=True, timeout=0):
         """Put work request into work queue and save its id for later."""
@@ -395,3 +412,6 @@ if __name__ == '__main__':
         except NoResultsPending:
             print "**** No pending results."
             break
+    if main.dismissedWorkers:
+        print "Joining all dismissed worker threads..."
+        main.joinAllDismissedWorkers()

@@ -3,14 +3,14 @@
 from setuptools import setup
 
 setup(name = 'threadpool',
-    version = '1.2.4',
+    version = '1.2.5',
     description = 'Easy to use object-oriented thread pool framework',
     keywords = 'threads, design pattern, thread pool',
     author = 'Christopher Arndt',
     author_email = 'chris@chrisarndt.de',
     url = 'http://chrisarndt.de/projects/threadpool/',
     download_url = 'http://chrisarndt.de/projects/threadpool/download/',
-    license = "Python license",
+    license = "MIT license",
     long_description = """\
 A thread pool is an object that maintains a pool of worker threads to perform
 time consuming operations in parallel. It assigns jobs to the threads

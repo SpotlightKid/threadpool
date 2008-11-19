@@ -1,6 +1,21 @@
 .. -*- coding: UTF-8 -*-
 
+2008-11-19
+    - Update reference to "Python In A Nutshell" to second edition (suggested
+      by Alex Martelli).
+    - Fixed typo in WorkerThread.run() (thanks to Nicholas Bollweg, Aaron
+      Levinson, Rogério Schneider, Grégory Starck for reporting).
+    - Fixed missing first argument in call to Queue.get() in WorkerThread.run()
+      (thanks to Aaron Levinson for report).
+    - added new argument 'do_join' to ThreadPool.dismissWorkers(). When True,
+      the method will perform Thread.join() on each thread after dismissing it.
+    - Added joinAllDismissedWorkers method to ThreadPool to join dismissed
+      threads at a later time (thanks to Aaron Levinson for patch for these two
+      changes).
+
 2008-05-04
+    - 'timeout' parameter of ThreadPool.putRequest now correctly defaults to 0
+      instead of None (thanks to Mads Sülau Jørgensen for bug report).
     - Added default exception handler callback (thanks to Moshe Cohen for the
       patch).
     - Fixed locking issue that prevented worker threads from being dismissed
@@ -26,7 +41,5 @@
 2006-05-19 1.2.2 (first release as a package)
     - fixed wrong usage of isinstance in makeRequests()
       Thanks to anonymous for bug report in comment on ASPN
-
     - added setup.py and created a proper distribution package
-
     - added timeout parameter to putRequest()
