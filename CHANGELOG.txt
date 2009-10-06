@@ -1,5 +1,13 @@
 .. -*- coding: UTF-8 -*-
 
+2009-10-06 (1.2.6)
+    - Due to some mix up up the I got the bugfix for the 'timeout' parameter
+      to ThreadPool.putRequest exactly the wrong way round (or I "fixed" it
+      twice). It now defaults to None as its should, so putRequest blocks by
+      default, if the requests queue is full. Thanks for Guillaume Taglang for
+      reporting the issue.
+    - rename NEWS.txt to CHANGELOG.txt (this file).
+
 2008-11-19
     - Update reference to "Python In A Nutshell" to second edition (suggested
       by Alex Martelli).

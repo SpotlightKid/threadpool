@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(name = 'threadpool',
-    version = '1.2.5',
+    version = '1.2.6',
     description = 'Easy to use object-oriented thread pool framework',
     keywords = 'threads, design pattern, thread pool',
     author = 'Christopher Arndt',

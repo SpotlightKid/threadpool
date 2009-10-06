@@ -43,7 +43,7 @@ __all__ = [
 ]
 
 __author__ = "Christopher Arndt"
-__version__ = "1.2.5"
+__version__ = "1.2.6"
 __revision__ = "$Revision$"
 __date__ = "$Date$"
 __license__ = 'MIT license'
@@ -287,7 +287,7 @@ class ThreadPool:
             worker.join()
         self.dismissedWorkers = []
 
-    def putRequest(self, request, block=True, timeout=0):
+    def putRequest(self, request, block=True, timeout=None):
         """Put work request into work queue and save its id for later."""
         assert isinstance(request, WorkRequest)
         # don't reuse old work requests
