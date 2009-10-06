@@ -10,11 +10,16 @@ if [ "x$1" = "x-f" ]; then
 fi
 
 echo "Before you go ahead, check that the version numbers in README.txt, "
-echo "setup.py and threadpool.py are correct!"
+echo "and setup.py are correct!"
 echo
 echo "Press ENTER to continue, Ctrl-C to abort..."
 read
 echo
+
+SVN_BASE_URL="svn://chrisarndt.de/projects"
+PROJECT_NAME=$(python -c 'execfile("src/release.py"); print name')
+VERSION=$(python -c 'execfile("src/release.py"); print version')
+HOMEPAGE=$(python -c 'execfile("src/release.py"); print url')
 
 VENV="../venv"
 RST2HTML_OPTS='--stylesheet-path=rest.css --link-stylesheet --input-encoding=UTF-8 --output-encoding=UTF-8 --language=en --no-xml-declaration --date --time'
@@ -33,7 +38,7 @@ pygmentize  -P full -P cssfile=hilight.css -P title=threadpool.py \
     -o doc/threadpool.py.html src/threadpool.py
 # Create API documentation
 epydoc -v -n Threadpool -o doc/api \
-  --url "http://chrisarndt.de/projects/threadpool/" \
+  --url "$HOMEPAGE" \
   --no-private --docformat restructuredtext \
   src/threadpool.py
 # Create HTMl version of README
@@ -64,5 +69,5 @@ else
            -m "Tagging $PROJECT_NAME release $VERSION"
     fi
     # update web site
-    ./tools/upload.sh
+    ./tools/upload.sh -f
 fi

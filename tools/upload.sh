@@ -16,5 +16,7 @@ rsync $RSYNC_OPTS -av --update --delete \
     doc/ "$USER@$HOST:$BASE_DIR"
 
 # Upload distribution packages
-rsync $RSYNC_OPTS -av --update "--exclude=*.dev*" \
+rsync $RSYNC_OPTS -av --update \
+    "--exclude=*.dev*" \
+    --exclude=.DS_Store \
     dist/ "$USER@$HOST:$BASE_DIR/download"
