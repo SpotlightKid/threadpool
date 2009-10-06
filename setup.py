@@ -8,7 +8,7 @@ setup(
     name=name,
     version=version,
     description=description,
-    log_description=long_description,
+    long_description=long_description,
     keywords=keywords,
     author=author,
     author_email=author_email,
