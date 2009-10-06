@@ -72,7 +72,7 @@ or see the colorized source code:
 .. _threadpool.py:
     http://chrisarndt.de/projects/threadpool/threadpool.py.html
 
-Or you can check out th elatest development version from the Subversion
+Or you can check out the latest development version from the Subversion
 repository::
 
     svn co svn://svn.chrisarndt.de/projects/threadpool/trunk threadpool

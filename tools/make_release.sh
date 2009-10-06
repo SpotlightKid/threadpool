@@ -1,6 +1,13 @@
 #!/bin/bash
 
+# make_release.sh - automates steps to build a threadpool release
+
 # generates documentation files and packages distribution archive
+
+if [ "x$1" = "x-f" ]; then
+    FINAL=yes
+    shift
+fi
 
 echo "Before you go ahead, check that the version numbers in README.txt, "
 echo "setup.py and threadpool.py are correct!"

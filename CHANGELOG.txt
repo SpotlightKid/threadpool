@@ -6,7 +6,8 @@
       twice). It now defaults to None as its should, so putRequest blocks by
       default, if the requests queue is full. Thanks for Guillaume Taglang for
       reporting the issue.
-    - rename NEWS.txt to CHANGELOG.txt (this file).
+    - Rename NEWS.txt to CHANGELOG.txt (this file).
+    - Add SVN checkout instructions to README.
 
 2008-11-19
     - Update reference to "Python In A Nutshell" to second edition (suggested
