@@ -43,9 +43,10 @@ __all__ = [
 ]
 
 __author__ = "Christopher Arndt"
+__version__ = '1.2.7'
 __revision__ = "$Revision$"
 __date__ = "$Date$"
-from release import license as __license__, version as __version__
+__license__ = "MIT license"
 
 
 # standard library modules

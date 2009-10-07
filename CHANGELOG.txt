@@ -1,5 +1,9 @@
 .. -*- coding: UTF-8 -*-
 
+2009-10-07 (1.2.7)
+    - I made a stupid error and made threadpool.py import from release.py but
+      this module is not installed by setup.py. Removed import again.
+
 2009-10-06 (1.2.6)
     - Due to some mix up up the I got the bugfix for the 'timeout' parameter
       to ThreadPool.putRequest exactly the wrong way round (or I "fixed" it

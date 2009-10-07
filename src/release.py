@@ -18,7 +18,7 @@ each result as it comes in.
 # Release info for Threadpool
 
 name = 'threadpool'
-version = '1.2.6'
+version = '1.2.7'
 description = 'Easy to use object-oriented thread pool framework'
 keywords = 'threads, design pattern, thread pool'
 author = 'Christopher Arndt'
