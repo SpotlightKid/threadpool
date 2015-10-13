@@ -1,0 +1,15 @@
+--- markup/restructuredtext.py.orig	2015-10-14 01:30:54.374853970 +0200
++++ markup/restructuredtext.py	2015-10-14 01:30:07.174851600 +0200
+@@ -304,7 +304,11 @@
+         # Extract the first sentence.
+         for child in node:
+             if isinstance(child, docutils.nodes.Text):
+-                m = self._SUMMARY_RE.match(child.data)
++                try:
++                    m = self._SUMMARY_RE.match(child.data)
++                except AttributeError:
++                    m = None
++
+                 if m:
+                     summary_pieces.append(docutils.nodes.Text(m.group(1)))
+                     other = child.data[m.end():]

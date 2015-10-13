@@ -28,6 +28,8 @@ if [ ! -d "$VENV" ]; then
     virtualenv -p python2.7 --no-site-packages "$VENV"
     source "$VENV/bin/activate"
     pip install Pygments docutils "epydoc>3.0" wheel
+    cwd="$(pwd)"
+    ( cd $VENV/lib/python2.7/site-packages/epydoc ; patch -p0 -i $cwd/misc/epydoc.patch ; )
 else
     source "$VENV/bin/activate"
 fi
