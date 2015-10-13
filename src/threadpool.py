@@ -122,8 +122,8 @@ class WorkerThread(threading.Thread):
         """Set up thread in daemonic mode and start it immediatedly.
 
         ``requests_queue`` and ``results_queue`` are instances of
-        ``Queue.Queue`` passed by the ``ThreadPool`` class when it creates a new
-        worker thread.
+        ``Queue.Queue`` passed by the ``ThreadPool`` class when it creates a
+        new worker thread.
 
         """
         threading.Thread.__init__(self, **kwds)
@@ -160,7 +160,8 @@ class WorkerThread(threading.Thread):
                     self._results_queue.put((request, sys.exc_info()))
 
     def dismiss(self):
-        """Sets a flag to tell the thread to exit when done with current job."""
+        """Sets a flag to tell the thread to exit when done with current job.
+        """
         self._dismissed.set()
 
 

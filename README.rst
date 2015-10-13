@@ -5,8 +5,8 @@ Threadpool
 
 :Title: Easy to use object-oriented thread pool framework
 :Author: Christopher Arndt
-:Version: 1.2.7
-:Date: 2009-10-07
+:Version: 1.3.0
+:Date: 2015-10-14
 :License: MIT License
 
 
@@ -66,21 +66,20 @@ or see the colorized source code:
 
     threadpool.py_
 
-You can also install it from the Cheeseshop_ via easy_install_::
+You can also install it from the Python Package Index PyPI_ via `pip`::
 
-    [sudo] easy:install threadpool
+    [sudo] pip install threadpool
 
-Or you can check out the latest development version from the Subversion
+Or you can check out the latest development version from the Git
 repository::
 
-    svn co svn://svn.chrisarndt.de/projects/threadpool/trunk threadpool
+    git clone git@github.com:SpotlightKid/threadpool.git
 
 .. _download directory:
     http://chrisarndt.de/projects/threadpool/download/
 .. _threadpool.py:
     http://chrisarndt.de/projects/threadpool/threadpool.py.html
-.. _cheeseshop: http://cheeseshop.python.org/pypi/threadpool
-.. _easy_install: http://peak.telecommunity.com/DevCenter/EasyInstall
+.. _pypi: http://pypi.python.org/pypi/threadpool
 
 
 Discussion

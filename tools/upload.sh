@@ -12,6 +12,7 @@ fi
 rsync $RSYNC_OPTS -av --update --delete \
     --exclude=download \
     --exclude=.svn \
+    --exclude=.git \
     --exclude=.DS_Store \
     doc/ "$USER@$HOST:$BASE_DIR"
 

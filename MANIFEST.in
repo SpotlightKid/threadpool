@@ -1,5 +1,4 @@
-include threadpool.py
 recursive-include doc *.css *.html
-include README.txt CHANGELOG.txt
+include README.rst CHANGELOG.txt
 global-exclude CVS
 prune venv
