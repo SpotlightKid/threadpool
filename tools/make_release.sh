@@ -57,7 +57,7 @@ if [ "x$FINAL" != "xyes" ]; then
     fi
 else
     # Check if everything is commited
-    GIT_STATUS=$(git status)
+    GIT_STATUS=$(git status -s)
     if [ -n "$GIT_STATUS" ]; then
         echo "Git is not up to date. Please fix." 2>&1
         exit 1
