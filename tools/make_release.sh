@@ -64,7 +64,7 @@ else
     fi
 
     # and upload & register them at the Cheeseshop if "-f" option is given
-    python setup.py egg_info -RDb "" bdist_egg sdist bdist_wheel \
+    python setup.py egg_info -RDb "" bdist_egg bdist_wheel sdist \
         --formats=zip,bztar register upload
     ret=$?
     # tag release in the Git repo
