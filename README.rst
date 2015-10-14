@@ -5,19 +5,19 @@ Threadpool
 
 :Title: Easy to use object-oriented thread pool framework
 :Author: Christopher Arndt
-:Version: 1.3.0
+:Version: 1.3.1
 :Date: 2015-10-14
 :License: MIT License
+
 
 .. warning::
     This module is **OBSOLETE** and is only provided on PyPI to support old
     projects that still use it. Please **DO NOT USE IT FOR NEW PROJECTS!**
 
-    Use modern alternatives like the multiprocessing_ module in the standard
-    library or even an asynchroneous approach with asyncio_.
+    Use modern alternatives like the `multiprocessing <https://docs.python.org/3/library/multiprocessing.html>`_
+    module in the standard library or even an asynchroneous approach with
+    `asyncio <_asyncio: https://docs.python.org/3/library/asyncio.html>`_.
 
-.. _multiprocessing: https://docs.python.org/3/library/multiprocessing.html
-.. _asyncio: https://docs.python.org/3/library/asyncio.html
 
 Description
 ===========

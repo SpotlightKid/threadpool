@@ -9,8 +9,8 @@ if [ "x$1" = "x-f" ]; then
     shift
 fi
 
-echo "Before you go ahead, check that the version numbers in README.txt, "
-echo "and src/release.py are correct!"
+echo "Before you go ahead, check that the version numbers in README.rst, "
+echo "src/threadpooly.py and src/release.py are correct!"
 echo
 echo "Press ENTER to continue, Ctrl-C to abort..."
 read

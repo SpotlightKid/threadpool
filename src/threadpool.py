@@ -43,7 +43,7 @@ __all__ = [
 ]
 
 __author__ = "Christopher Arndt"
-__version__ = '1.2.7'
+__version__ = '1.3.1'
 __revision__ = "$Revision$"
 __date__ = "$Date$"
 __license__ = "MIT license"

@@ -1,5 +1,15 @@
 # -*- coding: UTF-8 -*-
-"""A thread pool is an object that maintains a pool of worker threads to perform
+"""Easy to use object-oriented thread pool framework.
+
+.. warning::
+    This module is **OBSOLETE** and is only provided on PyPI to support old
+    projects that still use it. Please **DO NOT USE IT FOR NEW PROJECTS!**
+
+    Use modern alternatives like the `multiprocessing <https://docs.python.org/3/library/multiprocessing.html>`_
+    module in the standard library or even an asynchroneous approach with
+    `asyncio <_asyncio: https://docs.python.org/3/library/asyncio.html>`_.
+
+A thread pool is an object that maintains a pool of worker threads to perform
 time consuming operations in parallel. It assigns jobs to the threads
 by putting them in a work request queue, where they are picked up by the
 next available thread. This then performs the requested operation in the
@@ -18,15 +28,15 @@ each result as it comes in.
 # Release info for Threadpool
 
 name = 'threadpool'
-version = '1.3.0'
-description = 'Easy to use object-oriented thread pool framework'
+version = '1.3.1'
+description = __doc__.splitlines()[0]
 keywords = 'threads, design pattern, thread pool'
 author = 'Christopher Arndt'
 author_email = 'chris@chrisarndt.de'
 url = 'http://chrisarndt.de/projects/threadpool/'
 download_url = url + 'download/'
 license = "MIT license"
-long_description = __doc__
+long_description = "".join(__doc__.splitlines()[2:])
 platforms = "POSIX, Windows, MacOS X"
 classifiers = [
   'Development Status :: 5 - Production/Stable',
