@@ -1,8 +1,11 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 from setuptools import setup
 
-execfile('src/release.py')
+
+with open('src/release.py') as f:
+    exec(compile(f.read(), 'src/release.py', 'exec'))
 
 setup(
     name=name,

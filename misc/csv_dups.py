@@ -11,4 +11,4 @@ for md5 in csv.reader(raw):
 
 for key in md5dict:
     if len(md5dict[key]) > 1:
-        print "\n".join(md5dict[key]), '\n'
+        print("\n".join(md5dict[key]), '\n')

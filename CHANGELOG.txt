@@ -1,5 +1,12 @@
 .. -*- coding: UTF-8 -*-
 
+2015-10-14 (1.3.0)
+    - Migrated repository from SVN to Git.
+    - Incorporated changes (with minor adjustments) from Lutz Prechelt from
+      https://github.com/prechelt/threadpool to make Threadpool Python 3
+      compatible. Thanks, Lutz!
+    - Fixed some build errors.
+
 2009-10-07 (1.2.7)
     - I made a stupid error and made threadpool.py import from release.py but
       this module is not installed by setup.py. Removed import again.

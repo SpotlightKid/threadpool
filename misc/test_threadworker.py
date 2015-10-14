@@ -1,42 +1,27 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
 # test_threadworker.py
+#
 
-import md5, sha
-from threadpool import *
+try:                 # Python 2:
+    import sha
+    def sha1_new(): return sha.new()
+except ImportError:  # Python 3:
+    import hashlib
+    def sha1_new(): return hashlib.sha1()
 
-bufsize = 8*1024
-rmode = 'rb'
+import threadpool as tp
 
-def getmd5(filename, data=None):
-    try:
-        fp = open(filename, rmode)
-    except IOError, exc:
-        return (exc, '%s: Can\'t open: %s\n' % (filename, exc))
-    m = md5.new()
-    try:
-        # this will get the disk thrashing very quickly!
-        ## while 1:
-            ## data = fp.read(bufsize)
-            ## if not data:
-                ## break
-        m.update(fp.read())
-    except IOError, exc:
-        return (exc, '%s: I/O error: %s\n' % (filename, exc))
-    else:
-        fp.close()
-    return m.hexdigest()
-
-def getmd5_2(dummy, data):
-    m = md5.new()
-    m.update(data)
-    return m.hexdigest()
 
 def getsha(dummy, data):
-    m = sha.new()
+    m = sha1_new()
     m.update(data)
     return m.hexdigest()
 
 def print_result(request, result):
-    print '"%s", %s' % (os.path.basename(request.args[0]), result)
+    print('"%s" -->\t%s' % (os.path.basename(request.args[0]), result))
+
 
 if __name__ == '__main__':
     import os, sys
@@ -52,18 +37,22 @@ if __name__ == '__main__':
             filename = os.path.join(dirpath, filename)
             if os.path.isfile(filename):
                 files.append(filename, )
-    files.sort()
 
-    main = ThreadPool(10, q_size=50)
+    files.sort()
+    main = tp.ThreadPool(10, q_size=50)
+
     for file in files:
-        # bad approach
+        # Bad approach:
         ## main.putRequest(WorkRequest(getmd5, args=(file, None),
-        ##   callback=print_result))
-        # better approach
-        main.putRequest(WorkRequest(getsha, args=(file, open(file).read()),
-          callback=print_result))
+        ##                             callback=print_result))
+
+        # Better approach:
+        main.putRequest(tp.WorkRequest(getsha,
+                                       args=(file, open(file, 'rb').read()),
+                                       callback=print_result))
         try:
             main.poll()
-        except NoResultsPending:
+        except tp.NoResultsPending:
             pass
+
     main.wait()
