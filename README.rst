@@ -82,7 +82,7 @@ You can also install it from the Python Package Index PyPI_ via `pip`::
 Or you can check out the latest development version from the Git
 repository::
 
-    git clone git@github.com:SpotlightKid/threadpool.git
+    git clone https://github.com/SpotlightKid/threadpool.git
 
 .. _download directory:
     http://chrisarndt.de/projects/threadpool/download/
