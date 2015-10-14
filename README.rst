@@ -9,6 +9,15 @@ Threadpool
 :Date: 2015-10-14
 :License: MIT License
 
+.. warning::
+    This module is **OBSOLETE** and is only provided on PyPI to support old
+    projects that still use it. Please **DO NOT USE IT FOR NEW PROJECTS!**
+
+    Use modern alternatives like the multiprocessing_ module in the standard
+    library or even an asynchroneous approach with asyncio_.
+
+.. _multiprocessing: https://docs.python.org/3/library/multiprocessing.html
+.. _asyncio: https://docs.python.org/3/library/asyncio.html
 
 Description
 ===========
