@@ -47,5 +47,19 @@ def test_run_threads():
     assert len(results) == num_calls
 
 
+def task1(arg):
+    print(arg)
+
+
+def dispatcher(arg):
+    args = list(range(50))
+    run_threads(3, task1, args)
+
+
+def test_threads_run_threads():
+    args = list(range(50))
+    run_threads(3, dispatcher, args)
+
+
 if __name__ == '__main__':
     test_run_threads()
