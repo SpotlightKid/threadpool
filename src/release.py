@@ -28,7 +28,7 @@ each result as it comes in.
 # Release info for Threadpool
 
 name = 'threadpool'
-version = '1.3.1'
+version = '1.3.2'
 description = __doc__.splitlines()[0]
 keywords = 'threads, design pattern, thread pool'
 author = 'Christopher Arndt'

@@ -1,5 +1,11 @@
 .. -*- coding: UTF-8 -*-
 
+2015-11-29 (1.3.2)
+    - Added missing release.py to source distribution
+
+2015-10-14 (1.3.1)
+    - Minor distribution procedure changes
+
 2015-10-14 (1.3.0)
     - Migrated repository from SVN to Git.
     - Incorporated changes (with minor adjustments) from Lutz Prechelt from
